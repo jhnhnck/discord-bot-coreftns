@@ -1,5 +1,5 @@
-from openbot.abstract.plugin import BotPlugin
+from openbot.abstract.plugin import PluginBase
 
 
-class PluginBase(BotPlugin):
+class BotPlugin(PluginBase):
   pass
