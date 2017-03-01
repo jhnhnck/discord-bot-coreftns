@@ -77,6 +77,12 @@
       "allowed_args_length": "[0]",
       "allowed_modifiers": {}
     },
+    "chat_bind": {
+      "function_name": "bind",
+      "help_text": "Use to specify a chat channel for commands and responses",
+      "allowed_args_length": "[0]",
+      "allowed_modifiers": {}
+    },
     "voice_summon": {
       "function_name": "summon",
       "help_text": "Join the bot to your channel",
