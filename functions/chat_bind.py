@@ -1,4 +1,6 @@
 from openbot.abstract.function import FunctionBase
+import openbot.permissions as perms
+import openbot.config as config
 
 
 class BotFunction(FunctionBase):
@@ -18,17 +20,20 @@ class BotFunction(FunctionBase):
         state: True if the function should be loaded
         msg: Detailed error message (Do not use logging here; It may not always work)
     """
-    return {'state': False, 'msg': 'Stub Function'}
+    return {'state': True}
 
 
-  def call(self, args, mod):
+  def call(self, client, message, mod):
     """
     Call.
-    Main entry point for a function called with a command is initialized.
-
-    Args:
-      args: array of arguments passed by the user
-      mod: dictionary of modifiers passed by the user that are also defined in the pluginname.json file; extra modifiers
-       are silently ignored
+    Binds the discord bot to a specific channel
     """
-    pass
+    # has_permission will handle no permissions
+    if perms.has_permission(message.owner, 'admin.set_channel_bindings'):
+      if mod.get('--append'):
+        channel_ids = config.get_config('chant.channels.bind_text_channels')
+        channel_ids = channel_ids.append(message.channel.id)
+      else:
+        channel_ids = [message.channel.id]
+
+      config.set_config('chant.channels.bind_text_channels', channel_ids)

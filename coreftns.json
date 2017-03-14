@@ -91,7 +91,9 @@
       "help_text": "Use to specify a chat channel for commands and responses",
       "allowed_args_length": "0",
       "args_description": [],
-      "allowed_modifiers": {}
+      "allowed_modifiers": {
+        "--append": "promote this channel to an approved channel"
+      }
     },
     "voice_summon": {
       "function_name": "summon",
