@@ -1,6 +1,5 @@
-from openbot.abstract.function import FunctionBase
-import openbot.permissions as perms
 import openbot.config as config
+from openbot.abstract.function import FunctionBase
 
 
 class BotFunction(FunctionBase):
@@ -29,11 +28,11 @@ class BotFunction(FunctionBase):
     Binds the discord bot to a specific channel
     """
     # has_permission will handle no permissions
-    if perms.has_permission(message.owner, 'admin.set_channel_bindings'):
+    if config.has_perm(message.owner, 'admin.set_channel_bindings'):
       if mod.get('--append'):
         channel_ids = config.get_config('chant.channels.bind_text_channels')
         channel_ids = channel_ids.append(message.channel.id)
       else:
         channel_ids = [message.channel.id]
 
-      config.set_config('chant.channels.bind_text_channels', channel_ids)
+      config.set_config('chat.channels.bind_text_channels', channel_ids)
