@@ -1,5 +1,5 @@
 description:
-  plugin_name: coreftns
+  plugin_name: CoreFtns
   domain_name: jhnhnck
   plugin_prefix: core
   plugin_description: Core functions included with discord-bot-core

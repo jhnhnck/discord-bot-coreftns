@@ -1,5 +1,5 @@
 from openbot.abstract.plugin import PluginBase
 
 
-class BotPlugin(PluginBase):
+class CoreFtns(PluginBase):
   pass
